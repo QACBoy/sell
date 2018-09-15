@@ -20,6 +20,7 @@ public interface IProductService {
 
     /**
      * 查询所有在架商品列表
+     *
      * @return
      */
     List<ProductInfo> findUpAll();

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +38,7 @@ public class BuyerProductController {
 
     /**
      * URL: http://127.0.0.1:8080/sell/buyer/product/list
+     * URL: http://sell.com
      *
      * @return
      */
@@ -60,13 +60,13 @@ public class BuyerProductController {
                 .collect(Collectors.toList());
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
         // 数据拼装
-        List<ProductVO>productVOlist=new ArrayList<>();
+        List<ProductVO> productVOlist = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
             ProductVO productVO = new ProductVO();
             productVO.setProductName(productCategory.getCategoryName());
             productVO.setCategoryType(productCategory.getCategoryType());
 
-            List<ProductInfoVO> productInfoVOList=new ArrayList<>();
+            List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo : productInfoList) {
                 // 先判断他们的类型是否一致，一致在添加到同一个list里面
                 if (productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
@@ -87,6 +87,6 @@ public class BuyerProductController {
         // resultVO.setData(productVOlist);
         // productVO.setProductInfoVOList(Arrays.asList(productInfoVO));
         // resultVO.setData(Arrays.asList(productVO));
-        return ResultVOUtil.success(productVOlist );
+        return ResultVOUtil.success(productVOlist);
     }
 }

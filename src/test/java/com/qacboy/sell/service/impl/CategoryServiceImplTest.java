@@ -30,7 +30,7 @@ public class CategoryServiceImplTest {
     private ICategoryService categoryService;
 
     @Test
-    public void findById()throws Exception {
+    public void findById() throws Exception {
         ProductCategory productCategory = categoryService.findById(1);
         Assert.assertEquals(new Integer(1), productCategory.getCategoryId());
     }

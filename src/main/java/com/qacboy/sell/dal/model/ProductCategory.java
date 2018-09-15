@@ -1,6 +1,7 @@
 package com.qacboy.sell.dal.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -20,6 +21,7 @@ import java.util.Date;
 @Entity
 @DynamicUpdate
 @Data
+@NoArgsConstructor
 public class ProductCategory {
 
     /** 类目id. */
@@ -36,9 +38,6 @@ public class ProductCategory {
     private Date createTime;
 
     private Date updateTime;
-
-    public ProductCategory() {
-    }
 
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;
