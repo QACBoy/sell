@@ -34,7 +34,7 @@ public class ProductCategoryDaoTest {
     public void findOneTest() {
         // JpaRepository 中通过 id 查询数据的新方法
         Optional<ProductCategory> productCategory = productCategoryDao.findById(1);
-        log.info("productCategory: {}",productCategory.get().toString());
+        log.info(" === test === productCategory: {}",productCategory.get().toString());
     }
 
     @Test
